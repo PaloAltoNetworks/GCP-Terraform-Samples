@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-server
+  annotations:
+    cloud.google.com/load-balancer-type: "Internal"
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cloud.google.com/load-balancer-type: "Internal"
+  creationTimestamp: 2018-03-19T17:35:22Z
+  labels:
+    run: hello-server
+  name: hello-server
+  namespace: default
+  resourceVersion: "1570"
+  selfLink:
+  uid: 
+spec:
+  clusterIP: 
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 31154
+    port: 9000
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: hello-server
+  sessionAffinity: None
+  type: LoadBalancer
+
